@@ -28,6 +28,12 @@ let rec pSBRec l cpt res =
 in pSBRec l 0 0
 ;;
 let remplace l =
-let maList =  [];
-maList
+        let res = [] in 
+        let rec replaceRec l rplcmnt res = 
+                match l with 
+                [] -> []
+                |h::[]->replaceRec [] rplcmnt res;  rplcmnt = h ; if h=B then rplcmnt::res else h::res
+                |h::tail -> replaceRec tail rplcmnt res; if h = B then rplcmnt::res else h::res
+        in replaceRec l B res;
+        res
 ;;
